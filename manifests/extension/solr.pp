@@ -44,13 +44,22 @@ class php::extension::solr(
   $package  = $php::extension::solr::params::package,
   $provider = $php::extension::solr::params::provider,
   $inifile  = $php::extension::solr::params::inifile,
-  $settings = $php::extension::solr::params::settings
+  $settings = $php::extension::solr::params::settings,
+  $answers  = $php::extension::solr::params::answers,
+  $builddeps = $php::extension::solr::params::builddeps
 ) inherits php::extension::solr::params {
+
+  $builddeps.each |$dep| {
+    package { $dep:
+      ensure => 'present',
+    }
+  }
 
   php::extension { 'solr':
     ensure   => $ensure,
     package  => $package,
-    provider => $provider
+    provider => $provider,
+    pipe     => $answers
   }
   ->
   php::config { 'php-extension-solr':
