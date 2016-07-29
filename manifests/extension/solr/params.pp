@@ -52,7 +52,7 @@ class php::extension::solr::params {
     'set ".anon/extension" "solr.so"'
   ]
   $builddeps  = $osfamily ? {
-    'Debian|Ubuntu' => ['libcurl4-gnutls-dev', 'libxml2-dev'],
+    /(Debian|Ubuntu)/ => ['libcurl4-gnutls-dev', 'libxml2-dev'],
     default  => [],
   }
   $answers = "no
