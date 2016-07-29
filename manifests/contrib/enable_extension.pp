@@ -35,15 +35,15 @@ define php::contrib::enable_extension(
   $priority = 20,
 ) {
     if $sapi == 'ALL' {
-      exec { "php-enable-extension-${package}":
-        command => "/usr/sbin/php5enmod ${package}",
-        creates => "/etc/php5/conf.d/${priority}-${package}.ini",
+      exec { "php-enable-extension-${extension}":
+        command => "/usr/sbin/php5enmod ${extension}",
+        creates => "/etc/php5/conf.d/${priority}-${extension}.ini",
       }
     } elsif $pecl_enable {
       $pecl_enable.each |$sapi| {
-        exec { "php-enable-extension-${package}-${sapi}":
-          command => "/usr/sbin/php5enmod -s ${sapi} ${package}",
-          creates => "/etc/php5/${sapi}/conf.d/${priority}-${package}.ini",
+        exec { "php-enable-extension-${extension}-${sapi}":
+          command => "/usr/sbin/php5enmod -s ${sapi} ${extension}",
+          creates => "/etc/php5/${sapi}/conf.d/${priority}-${extension}.ini",
         }
       }
     }
