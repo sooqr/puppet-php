@@ -69,4 +69,8 @@ class php::extension::zookeeper(
     file    => $inifile,
     config  => $settings
   }
+
+  php::contrib::enable_extension { 'extension-zookeeper':
+    extension => 'zookeeper',
+  }
 }
