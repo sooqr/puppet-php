@@ -26,6 +26,9 @@
 #   Hash with 'set' nested hash of key => value
 #   set changes to agues when applied to *inifile*
 #
+# [*builddeps*]
+#   The package names of the Zookeeper library in your OS repository
+#
 # === Examples
 #
 # No examples
@@ -48,5 +51,11 @@ class php::extension::solr::params {
   $settings = [
     'set ".anon/extension" "solr.so"'
   ]
-
+  $builddeps  = $osfamily ? {
+    'Debian|Ubuntu' => ['libcurl4-gnutls-dev', 'libxml2-dev'],
+    default  => [],
+  }
+  $answers = "no
+/usr
+/usr"
 }
