@@ -49,6 +49,8 @@ class php::extension::zookeeper::params {
   $provider   = 'pecl'
   $inifile    = "${php::params::config_root_ini}/zookeeper.ini"
   $settings   = [
+    'set ".anon/#comment[1]" "configuration for php Zookeeper module"',
+    'set ".anon/#comment[2]" "priority=20"',
     'set ".anon/extension" "zookeeper.so"'
   ]
 
