@@ -36,7 +36,7 @@
 #
 # === Copyright
 #
-# Copyright 2012-2013 Christian "Jippi" Winther, unless otherwise noted.
+# Copyright 2012-2015 Christian "Jippi" Winther, unless otherwise noted.
 #
 class php::extension::ssh2::params {
 
@@ -44,6 +44,8 @@ class php::extension::ssh2::params {
   $package  = 'php5-ssh2'
   $provider = undef
   $inifile  = "${php::params::config_root_ini}/ssh2.ini"
-  $settings = [ ]
+  $settings = [
+    'set ".anon/extension" "ssh2.so"'
+  ]
 
 }

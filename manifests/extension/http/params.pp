@@ -36,7 +36,7 @@
 #
 # === Copyright
 #
-# Copyright 2012-2013 Christian "Jippi" Winther, unless otherwise noted.
+# Copyright 2012-2015 Christian "Jippi" Winther, unless otherwise noted.
 #
 class php::extension::http::params {
 
@@ -44,6 +44,8 @@ class php::extension::http::params {
   $package  = 'php5-http'
   $provider = undef
   $inifile  = "${php::params::config_root_ini}/http.ini"
-  $settings = [ ]
+  $settings = [
+    'set ".anon/extension" "http.so"'
+  ]
 
 }

@@ -36,7 +36,7 @@
 #
 # === Copyright
 #
-# Copyright 2012-2013 Christian "Jippi" Winther, unless otherwise noted.
+# Copyright 2012-2015 Christian "Jippi" Winther, unless otherwise noted.
 #
 class php::extension::apcu::params {
 
@@ -44,5 +44,7 @@ class php::extension::apcu::params {
   $package  = 'php5-apcu'
   $provider = undef
   $inifile  = "${php::params::config_root_ini}/apcu.ini"
-  $settings = []
+  $settings = [
+    'set ".anon/extension" "apcu.so"'
+  ]
 }

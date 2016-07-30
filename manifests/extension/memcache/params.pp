@@ -37,14 +37,16 @@
 #
 # === Copyright
 #
-# Copyright 2012-2013 Christian "Jippi" Winther, unless otherwise noted.
+# Copyright 2012-2015 Christian "Jippi" Winther, unless otherwise noted.
 #
 class php::extension::memcache::params {
 
   $ensure   = $php::params::ensure
   $package  = 'php5-memcache'
   $provider = undef
-  $inifile  = '/etc/php5/conf.d/20-memcache.ini'
-  $settings = []
+  $inifile  = "${php::params::config_root_ini}/memcache.ini"
+  $settings = [
+    'set ".anon/extension" "memcache.so"'
+  ]
 
 }

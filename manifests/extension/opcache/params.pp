@@ -36,7 +36,7 @@
 #
 # === Copyright
 #
-# Copyright 2012-2013 Christian "Jippi" Winther, unless otherwise noted.
+# Copyright 2012-2015 Christian "Jippi" Winther, unless otherwise noted.
 #
 class php::extension::opcache::params {
 
@@ -44,6 +44,8 @@ class php::extension::opcache::params {
   $package  = undef
   $provider = undef
   $inifile  = "${php::params::config_root_ini}/opcache.ini"
-  $settings = [ ]
+  $settings = [
+    'set ".anon/extension" "opcache.so"'
+  ]
 
 }
